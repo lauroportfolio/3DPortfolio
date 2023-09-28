@@ -7,12 +7,6 @@ import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
-require('dotenv').config();
-const EMAIL_SERVICE_ID = process.env.EMAIL_SERVICE_ID;
-const EMAIL_TEMPLATE_ID = process.env.EMAIL_TEMPLATE_ID;
-const EMAIL_USER_ID = process.env.EMAIL_USER_ID;
-
-
 const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({
@@ -33,15 +27,15 @@ const Contact = () => {
     setLoading(true)
 
     emailjs.send(
-      EMAIL_SERVICE_ID,
-      EMAIL_TEMPLATE_ID,
+      'service_vc7tg5n',
+      'template_hm89f19',
       {
         from_name: form.name,
         to_name: 'Lauro Flores',
         to_email: 'lauroportfolio@gmail.com',
         message: form.message,
       },
-      EMAIL_USER_ID
+      'e66q5OZXrogMtoA9S'
     )
     .then(() => {
       setLoading(false)
